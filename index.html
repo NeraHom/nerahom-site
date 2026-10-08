@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NeraHom — Akıllı kombi termostatı</title>
+  <meta name="description" content="Pilli oda sensörü, kombi rölesi ve mobil uygulamadan oluşan, internet kesilse de çalışan akıllı ısıtma sistemi.">
+  <meta name="theme-color" content="#FEF5ED">
+  <meta property="og:title" content="NeraHom — Akıllı kombi termostatı">
+  <meta property="og:description" content="Pilli oda sensörü, kombi rölesi ve mobil uygulamadan oluşan akıllı ısıtma sistemi.">
+  <meta property="og:image" content="https://nerahom.com/img/aile-karma.webp">
+  <meta property="og:url" content="https://nerahom.com/">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://nerahom.com/">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Figtree:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="preload" as="image" href="img/sensor-kirmizi-34.webp">
+</head>
+<body>
+  <a class="atla" href="#ana">İçeriğe geç</a>
+
+  <header class="ust">
+    <a class="marka" href="#" aria-label="NeraHom">
+      <img src="img/logo-isaret.png" alt="" width="34" height="34">
+      <span class="kelime"><span class="nera">Nera</span><span class="hom">Hom</span></span>
+    </a>
+    <nav class="menu" aria-label="Bölümler">
+      <a href="#ekran" data-i18n="nav.ekran">Ekran</a>
+      <a href="#sistem" data-i18n="nav.sistem">Sistem</a>
+      <a href="#uygulama" data-i18n="nav.uygulama">Uygulama</a>
+      <a href="#yazilim" data-i18n="nav.yazilim">Yazılım</a>
+      <a href="#ozellikler" data-i18n="nav.ozellikler">Özellikler</a>
+      <a href="#claude" data-i18n="nav.claude">Claude</a>
+      <a href="#iletisim" data-i18n="nav.iletisim">İletişim</a>
+    </nav>
+    <div class="dil" role="group" aria-label="Dil / Language">
+      <button type="button" data-dil="tr" aria-pressed="true">TR</button>
+      <button type="button" data-dil="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main id="ana">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-metin">
+        <p class="etiket giris" style="--g:0" data-i18n="hero.etiket">AKILLI KOMBİ TERMOSTATI · TÜRKİYE</p>
+        <h1 class="giris" style="--g:1" data-i18n="hero.baslik_html">Sıcaklık, <em>tam</em> istediğiniz gibi.</h1>
+        <p class="giris oz" style="--g:2" data-i18n="hero.metin">NeraHom; pilli bir oda sensörü, kombinize bağlanan bir röle ve mobil uygulamadan oluşan akıllı bir ısıtma sistemi. Donanımı, gömülü yazılımı, sunucusu ve uygulaması tek ekipte, Türkiye'de geliştiriliyor.</p>
+        <div class="dugmeler giris" style="--g:3">
+          <a class="btn btn-dolu" href="#ekran" data-i18n="hero.cta1">Ekranı deneyin</a>
+          <a class="btn btn-cizgi" href="#iletisim" data-i18n="hero.cta2">Bize yazın</a>
+        </div>
+        <ul class="cipler giris" style="--g:4">
+          <li data-i18n="hero.c1">İnternetsiz çalışır (ESP-NOW)</li>
+          <li data-i18n="hero.c2">Uzaktan güncelleme (OTA)</li>
+          <li data-i18n="hero.c3">iOS ve Android uygulaması</li>
+          <li data-i18n="hero.c4">Kombiye kuru kontak</li>
+        </ul>
+      </div>
+      <figure class="hero-gorsel giris" style="--g:2">
+        <span class="dev-derece" aria-hidden="true"><span id="heroDerece">22</span>°</span>
+        <img src="img/sensor-kirmizi-34.webp" width="1400" height="1050" data-i18n-alt="hero.alt"
+             alt="Duvara monte NeraHom oda sensörü: ekranında sıcaklık, nem ve eşik değeri; sağda kırmızı ayar düğmesi">
+        <figcaption class="olcu" data-i18n="hero.olcu">NERAHOM SENSÖR · 87 × 96 × 28 MM · 1.8″ TFT · EC11 ENKODER</figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ 01 EKRAN ============ -->
+    <section id="ekran" class="bolum ekran-bolum" data-ortaya>
+      <div class="ekran-izgara">
+        <div class="cihaz-kap">
+          <div class="cihaz" id="cihaz" data-govde="kirmizi">
+            <img id="demoGorsel" src="img/demo-kirmizi.webp" width="1400" height="1400" data-i18n-alt="ekran.alt" alt="NeraHom sensörünün önden görünümü">
+            <canvas id="tft" class="tft" aria-hidden="true"></canvas>
+            <div class="topuz" id="topuz" role="slider" tabindex="0" aria-valuemin="18" aria-valuemax="30" aria-valuenow="22"
+                 aria-valuetext="22,0 °C" data-i18n-aria="ekran.dugme" aria-label="Hedef sıcaklık düğmesi">
+              <span class="topuz-isaret" id="topuzIsaret"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ekran-metin">
+          <p class="etiket" data-i18n="ekran.no">01 — EKRAN</p>
+          <h2 data-i18n="ekran.baslik">Düğmeyi çevirin, kombi cevap versin.</h2>
+          <p data-i18n="ekran.metin_html">Bu ekran bir görsel değil. Cihaz yazılımındaki çizim kodu tarayıcıya birebir aktarıldı: aynı 128 × 160 piksel, aynı 5 × 7 font, aynı renkler. Düğmeyi sürükleyin, üzerinde kaydırın ya da ok tuşlarını kullanın. Kombi kararı cihazdaki kuralla verilir: <code>sıcaklık &lt; eşik − 0,5 °C</code> ise kombi açılır.</p>
+
+          <dl class="okuma" aria-live="polite">
+            <div><dt data-i18n="ekran.oda">Oda</dt><dd id="okOda">21,4 °C</dd></div>
+            <div><dt data-i18n="ekran.esik">Eşik</dt><dd id="okEsik">22,0 °C</dd></div>
+            <div class="okuma-kombi"><dt data-i18n="ekran.kombi">Kombi</dt>
+              <dd><svg class="alev" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c3.5 4 6 7.2 6 11a6 6 0 0 1-12 0c0-2.4 1.1-4.4 2.6-6 .1 1.7.9 3 2.2 3.6C10.3 7.8 10.9 4.7 12 2z"/></svg><span id="okKombi">AÇIK</span></dd></div>
+          </dl>
+
+          <div class="kontroller">
+            <div class="adim" role="group">
+              <button type="button" class="yuvarlak" id="azalt" data-i18n-aria="ekran.azalt" aria-label="Eşiği 0,5 °C azalt">−</button>
+              <button type="button" class="yuvarlak" id="artir" data-i18n-aria="ekran.artir" aria-label="Eşiği 0,5 °C artır">+</button>
+            </div>
+            <div class="secim" role="group" aria-labelledby="modEtiket">
+              <span id="modEtiket" class="secim-etiket" data-i18n="ekran.mod">Bağlantı</span>
+              <button type="button" data-mod="SRV" aria-pressed="true" data-i18n="ekran.srv">Sunucu (SRV)</button>
+              <button type="button" data-mod="NOW" aria-pressed="false" data-i18n="ekran.now">Yerel ESP-NOW (NOW)</button>
+            </div>
+            <div class="secim" role="group" aria-labelledby="govdeEtiket">
+              <span id="govdeEtiket" class="secim-etiket" data-i18n="ekran.govde">Gövde</span>
+              <button type="button" data-govde="kirmizi" aria-pressed="true" data-i18n="ekran.kirmizi">Kırmızı</button>
+              <button type="button" data-govde="krem" aria-pressed="false" data-i18n="ekran.krem">Krem</button>
+              <button type="button" data-govde="antrasit" aria-pressed="false" data-i18n="ekran.antrasit">Antrasit</button>
+            </div>
+            <button type="button" class="btn btn-cizgi kucuk" id="koruyucuDugme" data-i18n="ekran.koruyucu">Ekran koruyucu</button>
+          </div>
+          <p class="dipnot" data-i18n="ekran.not_html">Oda sıcaklığı simüle edilir: kombi açıkken yavaşça ısınır, kapalıyken soğur. Cihaz 60 sn hareketsizlikte ekran koruyucuya geçer; burada bu süre 12 sn. Kaynak: <code>ui_manager.cpp → drawStatic(), drawScreensaver()</code></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 SİSTEM ============ -->
+    <section id="sistem" class="bolum" data-ortaya>
+      <div class="bolum-bas">
+        <p class="etiket" data-i18n="sistem.no">02 — SİSTEM</p>
+        <h2 data-i18n="sistem.baslik">Üç parça, tek bir sıcaklık.</h2>
+        <p class="oz" data-i18n="sistem.metin">Sensör odayı ölçer, röle kombiyi sürer, uygulama her şeyi cebinize taşır. Aralarındaki bağlantı internete muhtaç değil.</p>
+      </div>
+      <figure class="aile">
+        <img src="img/aile-karma.webp" width="1400" height="805" loading="lazy" data-i18n-alt="sistem.aile_alt" alt="NeraHom röle kutusu ve oda sensörü duvarda yan yana">
+      </figure>
+
+      <div class="kartlar">
+        <article class="kart">
+          <div class="kart-gorsel">
+            <img id="sensorGorsel" src="img/sensor-kirmizi-34.webp" width="1400" height="1050" loading="lazy" data-i18n-alt="sensor.alt" alt="NeraHom oda sensörü">
+          </div>
+          <p class="kart-ust"><span data-i18n="sensor.etiket">ODA SENSÖRÜ</span><span class="surum" data-i18n="sensor.surum">v2 · PCB hazır</span></p>
+          <h3 data-i18n="sensor.baslik">Duvarda sade, içeride akıllı.</h3>
+          <ul class="liste">
+            <li data-i18n="sensor.l1">Li-ion pil, USB-C ile şarj</li>
+            <li data-i18n="sensor.l2">1.8″ ekran normalde kapalı, düğmeye basınca açılır</li>
+            <li data-i18n="sensor.l3">Sıcaklık ve nem: AHT20 + BMP280</li>
+            <li data-i18n="sensor.l4">EC11 düğmeyle 0,5 °C adımlarla ayar</li>
+          </ul>
+          <div class="renkler" role="group" aria-labelledby="renkEtiket">
+            <span id="renkEtiket" class="secim-etiket" data-i18n="sensor.renk">Renk çalışmaları</span>
+            <button type="button" class="renk" style="--r:#E6342F" data-renk="kirmizi" aria-pressed="true" aria-label="Kırmızı / Red"></button>
+            <button type="button" class="renk" style="--r:#F4EEE6" data-renk="krem" aria-pressed="false" aria-label="Krem / Cream"></button>
+            <button type="button" class="renk" style="--r:#26333A" data-renk="antrasit" aria-pressed="false" aria-label="Antrasit / Anthracite"></button>
+          </div>
+        </article>
+
+        <article class="kart">
+          <div class="kart-gorsel">
+            <img src="img/role-krem-34.webp" width="1400" height="1050" loading="lazy" data-i18n-alt="role.alt" alt="NeraHom röle kutusu; üç durum LED'i ve kırmızı MOD butonu">
+          </div>
+          <p class="kart-ust"><span data-i18n="role.etiket">RÖLE · GATEWAY</span><span class="surum" data-i18n="role.surum">v2 · PCB hazır</span></p>
+          <h3 data-i18n="role.baslik">Kombinin yanında, şebekeden beslenir.</h3>
+          <ul class="liste">
+            <li data-i18n="role.l1">Kombinin oda termostatı girişine kuru kontak (NO/COM/NC)</li>
+            <li data-i18n="role.l2">Sunucuya Wi-Fi + MQTT, sensöre ESP-NOW ile bağlanır</li>
+            <li data-i18n="role.l3">HLK-PM01 besleme; sigorta ve varistörle korunan 220 V bölümü</li>
+            <li data-i18n="role.l4">Güç, ağ ve röle LED'leri; MOD butonu</li>
+          </ul>
+        </article>
+
+        <article class="kart">
+          <div class="kart-gorsel kart-uygulama">
+            <div class="telefon" aria-hidden="true">
+              <img src="img/logo-isaret.png" width="256" height="256" loading="lazy" data-i18n-alt="app.alt" alt="NeraHom uygulama simgesi">
+              <span class="telefon-kelime"><span class="nera">Nera</span><span class="hom">Hom</span></span>
+            </div>
+          </div>
+          <p class="kart-ust"><span data-i18n="app.etiket">MOBİL UYGULAMA</span><span class="surum" data-i18n="app.surum">v1 · Flutter</span></p>
+          <h3 data-i18n="app.baslik">Evden uzaktayken de.</h3>
+          <ul class="liste">
+            <li data-i18n="app.l1">Anlık sıcaklık, nem ve kombi durumu</li>
+            <li data-i18n="app.l2">16–30 °C arası hedef, 0,5 °C adım</li>
+            <li data-i18n="app.l3">Haftalık program: her gün için saat + sıcaklık</li>
+            <li data-i18n="app.l4">15 dk – 6 sa sıcaklık ve nem grafiği</li>
+            <li data-i18n="app.l5">6 haneli kodla cihaz eşleştirme</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 03 MOBİL UYGULAMA ============ -->
+    <section id="uygulama" class="bolum uygulama-bolum" data-ortaya>
+      <div class="bolum-bas">
+        <p class="etiket" data-i18n="m.no"></p>
+        <h2 data-i18n="m.baslik"></h2>
+        <p class="oz" data-i18n="m.metin"></p>
+      </div>
+      <div class="telefonlar">
+        <figure class="tel">
+          <div class="tel-govde"><div class="tel-ekran">
+            <div class="tel-ust"><span>9:41</span><span class="tel-centik"></span><span>●●</span></div>
+            <div class="tel-bas"><span class="tel-oda" data-i18n="m.salon"></span><span class="durum-yesil" data-i18n="m.cevrimici"></span></div>
+            <div class="kadran">
+              <svg viewBox="0 0 200 200" aria-hidden="true">
+                <circle cx="100" cy="100" r="82" class="kadran-iz" pathLength="100"/>
+                <circle cx="100" cy="100" r="82" class="kadran-dolu" pathLength="100" stroke-dasharray="32 100" transform="rotate(135 100 100)"/>
+              </svg>
+              <div class="kadran-ic"><span class="kadran-deger">21,4°</span><span class="kadran-alt"><span data-i18n="m.hedef"></span> 22,0°</span></div>
+            </div>
+            <div class="tel-bilgi"><span class="cip-kirmizi" data-i18n="m.kombiacik"></span><span class="cip-gri" data-i18n="m.nem"></span></div>
+            <div class="kaydirici"><span>16°</span><div class="ray"><i style="--k:43%"></i></div><span>30°</span></div>
+            <div class="grafik">
+              <span class="grafik-baslik" data-i18n="m.grafik"></span>
+              <svg viewBox="0 0 220 60" preserveAspectRatio="none" aria-hidden="true"><polyline points="0,46 20,44 40,45 60,40 80,36 100,30 120,27 140,24 160,25 180,22 200,20 220,21"/><polyline class="nem" points="0,18 30,20 60,22 90,21 120,25 150,26 180,28 220,27"/></svg>
+            </div>
+          </div></div>
+          <figcaption data-i18n="m.c1"></figcaption>
+        </figure>
+
+        <figure class="tel">
+          <div class="tel-govde"><div class="tel-ekran">
+            <div class="tel-ust"><span>9:41</span><span class="tel-centik"></span><span>●●</span></div>
+            <div class="tel-bas"><span class="tel-oda" data-i18n="m.program"></span><span class="anahtar acik" aria-hidden="true"><i></i></span></div>
+            <ul class="program">
+            <li><span class="gun" data-i18n="m.g1"></span><span class="girdi">06:30 · 21°</span><span class="girdi">08:30 · 18°</span><span class="girdi">17:30 · 22°</span></li>
+            <li><span class="gun" data-i18n="m.g2"></span><span class="girdi">06:30 · 21°</span><span class="girdi">17:30 · 22°</span></li>
+            <li><span class="gun" data-i18n="m.g3"></span><span class="girdi">06:30 · 21°</span><span class="girdi">17:30 · 22°</span></li>
+            <li><span class="gun" data-i18n="m.g4"></span><span class="girdi">06:30 · 21°</span><span class="girdi">17:30 · 22°</span></li>
+            <li><span class="gun" data-i18n="m.g5"></span><span class="girdi">06:30 · 21°</span><span class="girdi">17:30 · 22°</span></li>
+            <li><span class="gun" data-i18n="m.g6"></span><span class="girdi">09:00 · 22°</span></li>
+            <li><span class="gun" data-i18n="m.g7"></span><span class="girdi">09:00 · 22°</span><span class="girdi">23:00 · 18°</span></li>
+            </ul>
+            <div class="tel-dugme" data-i18n="m.kural"></div>
+          </div></div>
+          <figcaption data-i18n="m.c2"></figcaption>
+        </figure>
+
+        <figure class="tel tel-claude">
+          <div class="tel-govde"><div class="tel-ekran">
+            <div class="tel-ust"><span>9:41</span><span class="tel-centik"></span><span>●●</span></div>
+            <div class="tel-bas"><span class="tel-oda" data-i18n="m.asistan"></span><span class="rozet kucuk-rozet" data-i18n="claude.etiket"></span></div>
+            <div class="tel-sohbet">
+              <div class="t-balon t-siz" data-i18n="m.s1"></div>
+              <div class="t-eylem">
+                <span class="t-eylem-bas" data-i18n="m.eylem"></span>
+                <strong data-i18n="m.eylemd"></strong>
+                <div class="t-eylem-dugmeler"><span class="t-onay" data-i18n="m.onayla"></span><span class="t-iptal" data-i18n="m.vazgec"></span></div>
+              </div>
+              <div class="t-balon t-asistan" data-i18n="m.s2"></div>
+              <div class="t-balon t-siz" data-i18n="m.s3"></div>
+              <div class="t-balon t-asistan" data-i18n="m.s4"></div>
+            </div>
+            <div class="t-giris"><span data-i18n="m.yaz"></span><span class="t-mik" aria-hidden="true">🎙</span></div>
+          </div></div>
+          <figcaption data-i18n="m.c3"></figcaption>
+        </figure>
+      </div>
+      <ul class="cipler app-cipler">
+        <li data-i18n="m.o1"></li><li data-i18n="m.o2"></li><li data-i18n="m.o3"></li><li data-i18n="m.o4"></li>
+        <li data-i18n="m.o5"></li><li data-i18n="m.o6"></li><li class="cip-claude" data-i18n="m.o7"></li>
+      </ul>
+      <p class="dipnot" data-i18n="m.not"></p>
+    </section>
+
+    <!-- ============ 04 YAZILIM ============ -->
+    <section id="yazilim" class="bolum" data-ortaya>
+      <div class="bolum-bas">
+        <p class="etiket" data-i18n="yaz.no"></p>
+        <h2 data-i18n="yaz.baslik"></h2>
+        <p class="oz" data-i18n="yaz.metin"></p>
+      </div>
+      <div class="ozellikler">
+        <article class="ozellik"><span class="ozellik-no">01</span><span class="ozellik-etiket" data-i18n="yaz.1e"></span><h3 data-i18n="yaz.1b"></h3><p data-i18n="yaz.1m"></p><span class="surum">v1</span></article>
+        <article class="ozellik"><span class="ozellik-no">02</span><span class="ozellik-etiket" data-i18n="yaz.2e"></span><h3 data-i18n="yaz.2b"></h3><p data-i18n="yaz.2m"></p><span class="surum">v1</span></article>
+        <article class="ozellik"><span class="ozellik-no">03</span><span class="ozellik-etiket" data-i18n="yaz.3e"></span><h3 data-i18n="yaz.3b"></h3><p data-i18n="yaz.3m"></p><span class="surum">v1</span></article>
+        <article class="ozellik"><span class="ozellik-no">04</span><span class="ozellik-etiket" data-i18n="yaz.4e"></span><h3 data-i18n="yaz.4b"></h3><p data-i18n="yaz.4m"></p><span class="surum">v1</span></article>
+        <article class="ozellik"><span class="ozellik-no">05</span><span class="ozellik-etiket" data-i18n="yaz.5e"></span><h3 data-i18n="yaz.5b"></h3><p data-i18n="yaz.5m"></p><span class="surum">v1</span></article>
+        <article class="ozellik"><span class="ozellik-no">06</span><span class="ozellik-etiket" data-i18n="yaz.6e"></span><h3 data-i18n="yaz.6b"></h3><p data-i18n="yaz.6m"></p><span class="surum">v1</span></article>
+        <article class="ozellik"><span class="ozellik-no">07</span><span class="ozellik-etiket" data-i18n="yaz.7e"></span><h3 data-i18n="yaz.7b"></h3><p data-i18n="yaz.7m"></p><span class="surum">v2</span></article>
+        <article class="ozellik"><span class="ozellik-no">08</span><span class="ozellik-etiket" data-i18n="yaz.8e"></span><h3 data-i18n="yaz.8b"></h3><p data-i18n="yaz.8m"></p><span class="surum">v2</span></article>
+      </div>
+    </section>
+
+    <!-- ============ 05 TEKNİK ÖZELLİKLER ============ -->
+    <section id="ozellikler" class="bolum teknik-bolum" data-ortaya>
+      <div class="bolum-bas">
+        <p class="etiket" data-i18n="tek.no"></p>
+        <h2 data-i18n="tek.baslik"></h2>
+        <p class="oz" data-i18n="tek.metin"></p>
+      </div>
+      <div class="tablolar">
+        <div class="tablo">
+          <h3 data-i18n="tek.s"></h3>
+          <dl>
+            <div><dt data-i18n="tek.s1d"></dt><dd data-i18n="tek.s1v"></dd></div>
+            <div><dt data-i18n="tek.s2d"></dt><dd data-i18n="tek.s2v"></dd></div>
+            <div><dt data-i18n="tek.s3d"></dt><dd data-i18n="tek.s3v"></dd></div>
+            <div><dt data-i18n="tek.s4d"></dt><dd data-i18n="tek.s4v"></dd></div>
+            <div><dt data-i18n="tek.s5d"></dt><dd data-i18n="tek.s5v"></dd></div>
+            <div><dt data-i18n="tek.s6d"></dt><dd data-i18n="tek.s6v"></dd></div>
+            <div><dt data-i18n="tek.s7d"></dt><dd data-i18n="tek.s7v"></dd></div>
+            <div><dt data-i18n="tek.s8d"></dt><dd data-i18n="tek.s8v"></dd></div>
+          </dl>
+        </div>
+        <div class="tablo">
+          <h3 data-i18n="tek.r"></h3>
+          <dl>
+            <div><dt data-i18n="tek.r1d"></dt><dd data-i18n="tek.r1v"></dd></div>
+            <div><dt data-i18n="tek.r2d"></dt><dd data-i18n="tek.r2v"></dd></div>
+            <div><dt data-i18n="tek.r3d"></dt><dd data-i18n="tek.r3v"></dd></div>
+            <div><dt data-i18n="tek.r4d"></dt><dd data-i18n="tek.r4v"></dd></div>
+            <div><dt data-i18n="tek.r5d"></dt><dd data-i18n="tek.r5v"></dd></div>
+            <div><dt data-i18n="tek.r6d"></dt><dd data-i18n="tek.r6v"></dd></div>
+          </dl>
+        </div>
+        <div class="tablo">
+          <h3 data-i18n="tek.b"></h3>
+          <dl>
+            <div><dt data-i18n="tek.b1d"></dt><dd data-i18n="tek.b1v"></dd></div>
+            <div><dt data-i18n="tek.b2d"></dt><dd data-i18n="tek.b2v"></dd></div>
+            <div><dt data-i18n="tek.b3d"></dt><dd data-i18n="tek.b3v"></dd></div>
+            <div><dt data-i18n="tek.b4d"></dt><dd data-i18n="tek.b4v"></dd></div>
+            <div><dt data-i18n="tek.b5d"></dt><dd data-i18n="tek.b5v"></dd></div>
+            <div><dt data-i18n="tek.b6d"></dt><dd data-i18n="tek.b6v"></dd></div>
+            <div><dt data-i18n="tek.b7d"></dt><dd data-i18n="tek.b7v"></dd></div>
+          </dl>
+        </div>
+      </div>
+      <dl class="yigin">
+        <div><dt data-i18n="tek.y1"></dt><dd data-i18n="tek.d1"></dd></div>
+        <div><dt data-i18n="tek.y2"></dt><dd data-i18n="tek.d2"></dd></div>
+        <div><dt data-i18n="tek.y3"></dt><dd data-i18n="tek.d3"></dd></div>
+        <div><dt data-i18n="tek.y4"></dt><dd data-i18n="tek.d4"></dd></div>
+        <div><dt data-i18n="tek.y5"></dt><dd data-i18n="tek.d5"></dd></div>
+      </dl>
+    </section>
+
+    <!-- ============ 06 CLAUDE ============ -->
+    <section id="claude" class="bolum claude-bolum" data-ortaya>
+      <div class="claude-izgara">
+        <div>
+          <p class="etiket"><span data-i18n="claude.no">04 — CLAUDE</span> <span class="rozet" data-i18n="claude.etiket">GELİŞTİRİLİYOR</span></p>
+          <h2 data-i18n="claude.baslik">Termostata derdinizi anlatın.</h2>
+          <p data-i18n="claude.metin_html">Uygulamaya Anthropic'in <strong>Claude</strong> modeliyle çalışan bir komut asistanı ekliyoruz. “Akşam 7'de salonu 22 derece yap” gibi bir cümle, Claude API'nin araç kullanımı (<em>tool use</em>) ile yapılandırılmış bir komuta dönüşür. Model kombiyi hiçbir zaman doğrudan sürmez: her komut sunucuda yetki, 16–30 °C sınırı ve zamanlama kurallarıyla doğrulandıktan sonra cihaza gider.</p>
+          <p class="secim-etiket" data-i18n="claude.dene">Bir örnek seçin</p>
+          <div class="ornekler" id="ornekler"></div>
+          <p class="dipnot" data-i18n="claude.not">Bu bölüm etkileşimli bir prototiptir: yanıtlar önceden hazırlanmıştır, canlı API çağrısı yapılmaz.</p>
+        </div>
+        <div class="sohbet" id="sohbet" aria-live="polite">
+          <p class="sohbet-bos" data-i18n="claude.bos">Bir örnek seçtiğinizde konuşma burada görünecek.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 07 YOL HARİTASI ============ -->
+    <section class="bolum" data-ortaya>
+      <div class="bolum-bas">
+        <p class="etiket" data-i18n="yol.no">06 — YOL HARİTASI</p>
+        <h2 data-i18n="yol.baslik">Neredeyiz?</h2>
+      </div>
+      <ol class="yol">
+        <li class="yol-simdi"><span class="yol-evre" data-i18n="yol.1e">ŞİMDİ</span><h3 data-i18n="yol.1b">v1 prototip</h3><p data-i18n="yol.1m">ESP32-C3 sensör ve ESP8266 röle; Flask + MQTT sunucu; haftalık program ve uzaktan kontrollü Flutter uygulaması.</p></li>
+        <li><span class="yol-evre" data-i18n="yol.2e">SIRADAKİ</span><h3 data-i18n="yol.2b">v2 donanım</h3><p data-i18n="yol.2m">Pilli sensör ve gateway röle. PCB'ler tamamlandı (Ekim 2026); sırada prototip üretimi ve saha testleri.</p></li>
+        <li><span class="yol-evre" data-i18n="yol.3e">SONRA</span><h3 data-i18n="yol.3b">Daha akıllı bir ev</h3><p data-i18n="yol.3m">Claude ile doğal dilde kontrol; akıllı priz, gaz, su kaçağı ve kapı-pencere sensörleri.</p></li>
+      </ol>
+    </section>
+
+    <!-- ============ 08 İLETİŞİM ============ -->
+    <section id="iletisim" class="bolum iletisim-bolum" data-ortaya>
+      <p class="etiket" data-i18n="iletisim.no">07 — İLETİŞİM</p>
+      <h2 data-i18n="iletisim.baslik">Merhaba deyin.</h2>
+      <p class="oz" data-i18n="iletisim.metin">NeraHom, 2025'te Türkiye'de kurulan bir akıllı ev girişimi. Pilot kullanıcı olmak, iş birliği ya da yatırım için bize yazın.</p>
+      <a class="eposta" href="mailto:ilkerdizbay@nerahom.com">ilkerdizbay@nerahom.com</a>
+      <p class="kurucu" data-i18n="iletisim.kurucu">Kurucu: İlker Dizbay — gömülü sistemler, donanım ve yazılım</p>
+    </section>
+  </main>
+
+  <footer class="alt">
+    <a class="marka" href="#" aria-label="NeraHom">
+      <img src="img/logo-isaret.png" alt="" width="28" height="28" loading="lazy">
+      <span class="kelime"><span class="nera">Nera</span><span class="hom">Hom</span></span>
+    </a>
+    <p data-i18n="alt.telif">© 2026 NeraHom. Türkiye'de tasarlandı.</p>
+    <p class="dipnot" data-i18n="alt.not">Ürün görselleri cihazın 3D CAD modellerinden render edilmiştir; ekran görüntüleri cihaz yazılımının çizim koduyla üretilir.</p>
+  </footer>
+
+  <script type="module" src="js/site.js"></script>
+</body>
+</html>
