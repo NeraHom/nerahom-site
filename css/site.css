@@ -410,7 +410,28 @@ h3 { font-size: 1.32rem; line-height: 1.2; letter-spacing: -0.015em; }
 .cip-claude { border-color: var(--kirmizi) !important; color: var(--kirmizi-koyu) !important; }
 .uygulama-bolum .dipnot { text-align: center; margin: 0 auto; }
 
-/* ---------- 07 yol haritası ---------- */
+/* ---------- 07 ekosistem ---------- */
+.eko-kartlar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-bottom: clamp(32px, 5vw, 56px); }
+.eko-kart { display: grid; gap: 8px; align-content: start; padding: 22px; border-radius: var(--kavis); border: 1px solid var(--cizgi); background: rgba(255, 255, 255, .45); transition: transform .3s ease, box-shadow .3s ease; }
+.eko-kart:hover { transform: translateY(-3px); box-shadow: 0 18px 30px -22px rgba(30, 43, 50, .45); }
+.eko-ikon { width: 34px; height: 34px; fill: none; stroke: var(--kirmizi); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.eko-durum { justify-self: start; font: 600 0.7rem var(--f-mono); letter-spacing: .06em; color: var(--murekkep-2); background: #efe4d8; border-radius: 99px; padding: 3px 10px; }
+.eko-kart h3 { font-size: 1.18rem; }
+.eko-kart p { margin: 0; color: var(--murekkep-2); font-size: 0.95rem; }
+.eko-claude { background: var(--murekkep); color: #e9e2da; border-radius: 26px; padding: clamp(24px, 4vw, 48px); display: grid; gap: 26px; }
+.eko-claude-bas { display: grid; gap: 10px; max-width: 62ch; }
+.eko-claude-bas h3 { color: #fff; font-size: clamp(1.5rem, 2.6vw, 2.1rem); }
+.eko-claude-bas p { margin: 0; color: #b9c0c3; }
+.sahneler { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.sahne { background: #24333b; border: 1px solid #33444c; border-radius: var(--kavis); padding: 18px; display: grid; gap: 12px; align-content: start; }
+.sahne-soz { margin: 0; font: 600 1.08rem var(--f-baslik); color: #fff; background: var(--kirmizi); border-radius: 14px 14px 4px 14px; padding: 10px 14px; justify-self: end; }
+.sahne-eylem { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
+.sahne-eylem li { font: 400 0.84rem/1.45 var(--f-mono); color: #bfe6d0; padding-left: 18px; position: relative; }
+.sahne-eylem li::before { content: "→"; position: absolute; left: 0; color: #ff8a80; }
+.eko-ilke { margin: 0; color: #d9d2ca; font-size: 0.95rem; border-left: 3px solid var(--kirmizi); padding-left: 14px; max-width: 80ch; }
+.eko-ilke strong { color: #fff; }
+
+/* ---------- 08 yol haritası ---------- */
 .yol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); position: relative; }
 .yol::before { content: ""; position: absolute; left: 0; right: 0; top: 7px; height: 2px; background: var(--cizgi); }
 .yol li { position: relative; padding: 34px 26px 0 0; display: grid; gap: 8px; align-content: start; }
@@ -449,6 +470,7 @@ h3 { font-size: 1.32rem; line-height: 1.2; letter-spacing: -0.015em; }
   .dev-derece { top: -6%; }
   .kartlar { grid-template-columns: minmax(0, 1fr); max-width: 560px; }
   .ozellikler { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .eko-kartlar, .sahneler { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .tablolar { grid-template-columns: minmax(0, 1fr); max-width: 640px; }
   .telefonlar { grid-template-columns: repeat(3, minmax(240px, 1fr)); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; }
   .tel { scroll-snap-align: center; }
@@ -459,7 +481,7 @@ h3 { font-size: 1.32rem; line-height: 1.2; letter-spacing: -0.015em; }
   .menu { display: none; }
   .dil { margin-left: auto; }
   body { font-size: 16px; }
-  .yol, .ozellikler { grid-template-columns: minmax(0, 1fr); }
+  .yol, .ozellikler, .eko-kartlar, .sahneler { grid-template-columns: minmax(0, 1fr); }
   code { white-space: normal; overflow-wrap: anywhere; }
   .okuma div + div { padding-left: 12px; }
   .yol::before { left: 7px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; }
